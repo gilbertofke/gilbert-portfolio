@@ -6,7 +6,7 @@ export const site = {
   url: "https://tangus.me",
   tagline: "Complete software systems",
   description:
-    "Gilbert Cheruiyot Tangus builds complete software systems: AI-powered products, web applications, and the infrastructure and business tools behind them.",
+    "Gilbert Cheruiyot builds complete software systems: AI-powered products, web applications, and the infrastructure and business tools behind them.",
   location: "Nairobi, Kenya",
   hero: {
     statement:
@@ -26,18 +26,29 @@ export const navLinks: NavLink[] = [
 
 export const socials = {
   github: "https://github.com/gilbertofke",
-  
   linkedin: "https://www.linkedin.com/in/gilbert-cheruiyot-1a44781a0/",
   hashnode: "https://hashnode.com/@gilbertofke",
   medium: "https://medium.com/@gilbertofke",
-
   email: "gilbertofke@gmail.com",
 } as const;
 
 export const cv = {
-  path: "/cv/Gilbert-Tangus-CV.pdf",
-  downloadName: "Gilbert-Tangus-CV.pdf",
+  path: "/cv/Gilbert-Cheruiyot-CV.pdf",
+  downloadName: "Gilbert-Cheruiyot-CV.pdf",
 } as const;
+
+export const about = {
+  title: "Building systems that work in production",
+  paragraphs: [
+    "I build software from the first idea to the live service. That covers the interface people use, the backend that powers it, the infrastructure that keeps it running, and the AI features and business tools that make it more useful.",
+    "My background spans SRE, DevOps, and full stack development, so I care about how a feature feels to the person using it and also about how it behaves under load, during a failure, or at three in the morning. I like systems that are simple to operate and honest about their trade-offs.",
+    "Next, I want to work on a team where I can own systems end to end across AI, web, backend, and the tools around them. This site shows how I think, and the projects below show the work behind it.",
+  ],
+  photo: {
+    src: "/images/portrait.jpg",
+    alt: "Portrait of Gilbert Cheruiyot",
+  },
+};
 
 // Add the newest posts first.
 export const latestPosts: Post[] = [];
