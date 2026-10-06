@@ -108,7 +108,7 @@ export default function Nav() {
             aria-hidden="true"
             className="grid h-8 w-8 place-items-center rounded-md bg-turq text-sm font-extrabold text-navy"
           >
-            GT
+            GC
           </span>
           {site.shortName}
         </a>
