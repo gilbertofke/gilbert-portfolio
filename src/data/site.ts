@@ -3,7 +3,7 @@ import type { NavLink, Post } from "@/lib/types";
 export const site = {
   name: "Gilbert Cheruiyot",
   shortName: "Gilbert Cheruiyot",
-  url: "https://tangus.me",
+  url: "https://tangus.vercel.app",
   tagline: "Complete software systems",
   description:
     "Gilbert Cheruiyot builds complete software systems: AI-powered products, web applications, and the infrastructure and business tools behind them.",
