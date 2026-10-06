@@ -33,6 +33,104 @@
   }
 }
 
+/* Buttons */
+@utility btn-primary {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-teal);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: var(--color-paper);
+  transition:
+    background-color 150ms ease,
+    transform 150ms ease;
+
+  &:hover {
+    background-color: var(--color-navy);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--color-navy);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+
+  &:hover {
+    background-color: var(--color-navy);
+    color: var(--color-paper);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@utility btn-link {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  text-underline-offset: 6px;
+  transition: color 150ms ease;
+
+  &:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+  }
+}
+
+/* Motion: one gentle entrance and one menu transition, nothing more */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-menu {
+  animation: menu-in 160ms ease-out both;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
