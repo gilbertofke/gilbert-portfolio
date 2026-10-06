@@ -148,7 +148,7 @@ export default function ProjectCard({
           className={featured ? "md:col-start-1 md:row-start-1" : undefined}
         >
           <span
-            className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${kind.className}`}
+            className={`block w-fit rounded-full px-2.5 py-0.5 text-xs font-semibold ${kind.className}`}
           >
             {kind.label}
           </span>
@@ -181,12 +181,14 @@ export default function ProjectCard({
           <div
             className={
               featured
-                ? "mt-6 rounded-lg border border-dashed border-navy/25 bg-white px-5 py-6 text-sm text-muted md:col-start-2 md:row-span-2 md:row-start-1 md:mt-0 md:self-start"
+                ? "mt-6 rounded-lg border border-dashed border-navy/25 bg-white px-5 py-6 text-sm text-muted md:col-start-2 md:row-span-2 md:row-start-1 md:mt-0 md:flex md:items-center md:justify-center md:px-8 md:text-center md:text-base"
                 : "mt-6 rounded-lg border border-dashed border-navy/25 bg-white px-4 py-3 text-sm text-muted"
             }
           >
-            Case study coming soon. The problem, architecture, outcome, and
-            trade-offs will appear here once this project ships.
+            <p className={featured ? "md:max-w-md" : undefined}>
+              Case study coming soon. The problem, architecture, outcome, and
+              trade-offs will appear here once this project ships.
+            </p>
           </div>
         ) : (
           <dl
