@@ -1,69 +1,53 @@
-import Image from "next/image";
+import { site } from "@/data/site";
+
+const swatches = [
+  { name: "navy", className: "bg-navy text-paper" },
+  { name: "teal", className: "bg-teal text-paper" },
+  { name: "turq", className: "bg-turq text-navy" },
+  { name: "paper", className: "bg-paper text-navy border border-line" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main id="main" className="page-container section-pad">
+      <p className="text-sm font-semibold uppercase tracking-widest text-teal">
+        Foundation check
+      </p>
+
+      <h1 className="mt-3 max-w-3xl text-4xl font-extrabold text-navy md:text-6xl">
+        {site.hero.statement}
+      </h1>
+
+      <p className="mt-6 max-w-prose text-muted">
+        {site.hero.support} This paragraph uses the body font at 17px with a
+        1.65 line height, and the line length stays comfortable on every screen.
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a
+          href="#main"
+          className="rounded-md bg-teal px-5 py-3 font-semibold text-paper transition-colors hover:bg-navy"
+        >
+          Primary button
+        </a>
+        <a
+          href="#main"
+          className="rounded-md border border-navy px-5 py-3 font-semibold text-navy transition-colors hover:bg-navy hover:text-paper"
+        >
+          Secondary button
+        </a>
+      </div>
+
+      <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {swatches.map((s) => (
+          <div
+            key={s.name}
+            className={`rounded-lg p-6 text-sm font-semibold ${s.className}`}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            {s.name}
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
