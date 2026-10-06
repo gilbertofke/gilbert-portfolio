@@ -2,11 +2,14 @@ export type Lens = "fullstack" | "backend" | "ai" | "zoho";
 
 export type ProjectStatus = "placeholder" | "building" | "live";
 
+export type ProjectKind = "client" | "personal";
+
 export type Project = {
   slug: string;
   title: string;
   oneLiner: string;
   lens: Lens;
+  kind: ProjectKind;
   stack: string[];
   problem: string;
   architecture: string;
