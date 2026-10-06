@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { navLinks, site } from "@/data/site";
+import { about, navLinks, site } from "@/data/site";
 
 const linkBase =
   "block rounded-md px-3 py-4 font-heading text-2xl font-semibold transition-colors md:px-3 md:py-2 md:text-[0.95rem] md:font-medium aria-[current=location]:text-turq md:aria-[current=location]:underline md:aria-[current=location]:decoration-turq md:aria-[current=location]:decoration-2 md:aria-[current=location]:underline-offset-8";
@@ -104,12 +105,14 @@ export default function Nav() {
           href="#top"
           className="flex items-center gap-3 font-heading text-base font-bold tracking-tight"
         >
-          <span
-            aria-hidden="true"
-            className="grid h-8 w-8 place-items-center rounded-md bg-turq text-sm font-extrabold text-navy"
-          >
-            GC
-          </span>
+          <Image
+            src={about.photo.src}
+            alt=""
+            width={80}
+            height={80}
+            sizes="40px"
+            className="h-10 w-10 shrink-0 rounded-full object-cover object-[50%_25%] ring-2 ring-turq ring-offset-2 ring-offset-navy"
+          />
           {site.shortName}
         </a>
 
