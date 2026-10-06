@@ -4,7 +4,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function About() {
   return (
-    <section id="about" className="section-pad">
+    <section id="about" className="pb-16 pt-12 md:pb-24 md:pt-16">
       <div className="page-container grid gap-10 md:grid-cols-[minmax(0,1fr)_16rem] md:gap-16 lg:grid-cols-[minmax(0,1fr)_18rem]">
         <div className="md:self-center">
           <SectionHeading eyebrow="About" title={about.title} />
