@@ -50,7 +50,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${jakarta.variable} ${inter.variable}`}
+    >
       <body className="antialiased">
         <a
           href="#main"
