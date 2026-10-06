@@ -1,0 +1,63 @@
+import type { Lens, Project } from "@/lib/types";
+
+export const lensLabels: Record<Lens, string> = {
+  fullstack: "Full stack",
+  backend: "Backend and infrastructure",
+  ai: "AI engineering",
+  zoho: "Zoho",
+};
+
+export const projects: Project[] = [
+  {
+    slug: "fullstack-project",
+    title: "[Full stack project name]",
+    oneLiner: "[One line on what this web application does and for whom]",
+    lens: "fullstack",
+    stack: ["Laravel", "React", "PostgreSQL"],
+    problem: "[...]",
+    architecture: "[...]",
+    outcome: "[...]",
+    tradeoff: "[...]",
+    links: {},
+    status: "placeholder",
+  },
+  {
+    slug: "bulk-sms-queue",
+    title: "[Backend project name]",
+    oneLiner: "[Job queue that sends bulk SMS and reconciles payment batches]",
+    lens: "backend",
+    stack: ["FastAPI", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
+    problem: "[...]",
+    architecture: "[...]",
+    outcome: "[...]",
+    tradeoff: "[...]",
+    links: {},
+    status: "placeholder",
+  },
+  {
+    slug: "ai-project",
+    title: "[AI project name]",
+    oneLiner: "[One line on the AI system and the problem it solves]",
+    lens: "ai",
+    stack: ["Python", "FastAPI", "Qdrant"],
+    problem: "[...]",
+    architecture: "[...]",
+    outcome: "[...]",
+    tradeoff: "[...]",
+    links: {},
+    status: "placeholder",
+  },
+  {
+    slug: "zoho-project",
+    title: "[Zoho project name]",
+    oneLiner: "[One line on the business process this automates]",
+    lens: "zoho",
+    stack: ["Zoho Creator", "Deluge", "Zoho Flow"],
+    problem: "[...]",
+    architecture: "[...]",
+    outcome: "[...]",
+    tradeoff: "[...]",
+    links: {},
+    status: "placeholder",
+  },
+];
