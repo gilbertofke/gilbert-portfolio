@@ -33,7 +33,7 @@
   }
 }
 
-/* Buttons */
+/* Buttons: hover motion only on devices that can truly hover */
 @utility btn-primary {
   display: inline-flex;
   min-height: 3rem;
@@ -46,15 +46,21 @@
   font-weight: 600;
   color: var(--color-paper);
   transition:
-    background-color 150ms ease,
-    transform 150ms ease;
+    background-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 
-  &:hover {
-    background-color: var(--color-navy);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-navy);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -10px rgb(11 31 58 / 0.55);
+    }
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: translateY(0);
+    box-shadow: none;
   }
 }
 
@@ -70,17 +76,23 @@
   font-weight: 600;
   color: var(--color-navy);
   transition:
-    background-color 150ms ease,
-    color 150ms ease,
-    transform 150ms ease;
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 
-  &:hover {
-    background-color: var(--color-navy);
-    color: var(--color-paper);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-navy);
+      color: var(--color-paper);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -10px rgb(11 31 58 / 0.55);
+    }
   }
 
   &:active {
-    transform: translateY(1px);
+    transform: translateY(0);
+    box-shadow: none;
   }
 }
 
@@ -91,16 +103,32 @@
   gap: 0.5rem;
   font-weight: 600;
   color: var(--color-teal);
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
   text-underline-offset: 6px;
-  transition: color 150ms ease;
+  transition:
+    color 200ms ease,
+    text-decoration-color 200ms ease;
 
-  &:hover {
-    color: var(--color-navy);
-    text-decoration: underline;
+  & .btn-arrow {
+    display: inline-block;
+    transition: transform 200ms ease;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-navy);
+      text-decoration-color: var(--color-turq);
+    }
+
+    &:hover .btn-arrow {
+      transform: translateX(4px);
+    }
   }
 }
 
-/* Motion: one gentle entrance and one menu transition, nothing more */
+/* Motion: a gentle entrance, the menu transition, and the name typing in */
 @keyframes rise {
   from {
     opacity: 0;
@@ -123,12 +151,63 @@
   }
 }
 
+@keyframes type-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes type-caret-move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes type-caret-fade {
+  to {
+    opacity: 0;
+  }
+}
+
 @utility animate-rise {
   animation: rise 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @utility animate-menu {
   animation: menu-in 160ms ease-out both;
+}
+
+@layer components {
+  .type-in {
+    position: relative;
+    display: inline-block;
+  }
+
+  .type-in-text {
+    display: inline-block;
+    animation: type-reveal var(--type-duration) steps(var(--type-steps), end)
+      var(--type-delay) both;
+  }
+
+  .type-in-caret {
+    position: absolute;
+    top: 0.1em;
+    bottom: 0.1em;
+    width: 2px;
+    pointer-events: none;
+    background-color: var(--color-turq);
+    animation:
+      type-caret-move var(--type-duration) steps(var(--type-steps), end)
+        var(--type-delay) both,
+      type-caret-fade 400ms ease
+        calc(var(--type-delay) + var(--type-duration) + 900ms) forwards;
+  }
 }
 
 @layer base {
@@ -187,6 +266,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
