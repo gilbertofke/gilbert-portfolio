@@ -1,19 +1,17 @@
 import { lensLabels } from "@/data/projects";
 import { cv, site } from "@/data/site";
+import TypeIn from "./TypeIn";
 
 export default function Hero() {
   const areas = Object.values(lensLabels);
 
   return (
-    <section
-      id="top"
-      className="flex min-h-[calc(100svh-4rem)] items-center border-b border-line"
-    >
-      <div className="page-container py-16 md:py-24">
+    <section id="top" className="border-b border-line">
+      <div className="page-container pb-10 pt-14 md:pb-14 md:pt-20">
         <div className="max-w-3xl">
-          <p className="animate-rise flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-teal">
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-teal">
             <span aria-hidden="true" className="h-0.5 w-8 bg-turq" />
-            {site.name}
+            <TypeIn text={site.name} />
           </p>
 
           <h1
@@ -54,7 +52,9 @@ export default function Hero() {
           </a>
           <a href="#contact" className="btn-link">
             Get in touch
-            <span aria-hidden="true">&rarr;</span>
+            <span aria-hidden="true" className="btn-arrow">
+              &rarr;
+            </span>
           </a>
         </div>
 
