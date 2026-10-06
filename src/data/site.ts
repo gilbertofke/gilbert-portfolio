@@ -41,8 +41,8 @@ export const about = {
   title: "Building systems that work in production",
   paragraphs: [
     "I build software from the first idea to the live service. That covers the interface people use, the backend that powers it, the infrastructure that keeps it running, and the AI features and business tools that make it more useful.",
-    "My background spans SRE, DevOps, and full stack development, so I care about how a feature feels to the person using it and also about how it behaves under load, during a failure, or at three in the morning. I like systems that are simple to operate and honest about their trade-offs.",
-    "Next, I want to work on a team where I can own systems end to end across AI, web, backend, and the tools around them. This site shows how I think, and the projects below show the work behind it.",
+    "My background spans full stack development,SRE, DevOps,and applied AI so I care about how a feature feels to the person using it and also about how it behaves under load, during a failure, or at three in the morning. I like systems that are simple to operate and honest about their trade-offs.",
+    "I am looking to work in a team where I can own systems end to end across AI, web, backend, and the tools around them.",
   ],
   photo: {
     src: "/images/portrait.jpg",
