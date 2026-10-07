@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { lensLabels, projects } from "@/data/projects";
 import type { Lens } from "@/lib/types";
 import ProjectCard from "./ProjectCard";
@@ -23,6 +23,7 @@ function countFor(filter: Filter) {
 
 export default function Projects() {
   const [filter, setFilter] = useState<Filter>("all");
+  const allChipRef = useRef<HTMLButtonElement>(null);
 
   const visible =
     filter === "all"
@@ -35,6 +36,14 @@ export default function Projects() {
   const hasPlaceholders = projects.some(
     (project) => project.status === "placeholder",
   );
+
+  const emptyHeading =
+    filter === "all" ? "Nothing here yet" : `Nothing in ${lensLabels[filter]} yet`;
+
+  function showAll() {
+    setFilter("all");
+    allChipRef.current?.focus();
+  }
 
   return (
     <section
@@ -67,6 +76,7 @@ export default function Projects() {
             return (
               <button
                 key={option.id}
+                ref={option.id === "all" ? allChipRef : undefined}
                 type="button"
                 onClick={() => setFilter(option.id)}
                 aria-pressed={selected}
@@ -121,17 +131,36 @@ export default function Projects() {
             })}
           </ul>
         ) : (
-          <div className="mt-4 rounded-xl border border-dashed border-navy/25 bg-paper px-6 py-10 text-center">
-            <p className="font-heading text-lg font-bold text-navy">
-              Nothing here yet
+          <div className="animate-rise mt-4 rounded-xl border border-dashed border-navy/25 bg-paper px-6 py-10 text-center">
+            <span
+              aria-hidden="true"
+              className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-navy text-turq"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                focusable="false"
+              >
+                <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
+            </span>
+            <p className="mt-4 font-heading text-lg font-bold text-navy">
+              {emptyHeading}
             </p>
             <p className="mx-auto mt-2 max-w-md text-muted">
-              There is no project in this area right now, and one is on its way.
-              In the meantime, take a look at everything else.
+              I have not published a project in this area yet. A case study
+              will appear here when one ships. Until then, the rest of my work
+              is one click away.
             </p>
             <button
               type="button"
-              onClick={() => setFilter("all")}
+              onClick={showAll}
               className="btn-secondary mt-6"
             >
               Show all projects
