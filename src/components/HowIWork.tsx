@@ -5,7 +5,7 @@ export default function HowIWork() {
     <section
       id="how-i-work"
       aria-labelledby="how-i-work-title"
-      className="section-pad border-t border-line"
+      className="border-t border-line pb-16 pt-16 md:pb-12 md:pt-24"
     >
       <div className="page-container">
         <div className="rounded-xl bg-navy p-6 text-paper md:grid md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-10 md:p-10">
