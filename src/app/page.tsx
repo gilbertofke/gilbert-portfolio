@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import HowIWork from "@/components/HowIWork";
 import Nav from "@/components/Nav";
@@ -16,6 +17,7 @@ export default function Home() {
         <Skills />
         <Writing />
         <HowIWork />
+        <Contact />
       </main>
     </>
   );
