@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HowIWork from "@/components/HowIWork";
 import Nav from "@/components/Nav";
@@ -19,6 +20,7 @@ export default function Home() {
         <HowIWork />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
