@@ -78,8 +78,7 @@ export default function Writing() {
           </ul>
         ) : (
           <p className="mt-10 text-navy">
-            The first article is on its way. Until then, you can follow along
-            on either profile.
+            
           </p>
         )}
 
