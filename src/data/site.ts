@@ -9,7 +9,7 @@ export const site = {
     "Gilbert Cheruiyot builds complete software systems: AI-powered products, web applications, and the infrastructure and business tools behind them.",
   location: "Nairobi, Kenya",
   hero: {
-    headline: "I take software from first idea to live service.",
+    headline: "I take software from first idea to live service, and I stay once people depend on it.",
     lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together. What I enjoy most is the full arc: sketching the idea, building it, shipping it, and staying close once real people depend on it.",
     support: "Based in Nairobi, Kenya.",
   },
