@@ -10,7 +10,7 @@ export const site = {
   location: "Nairobi, Kenya",
   hero: {
     headline: "I take software from first idea to live service, and I stay once people depend on it.",
-    lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together.I build with the person who will run it in mind, so what I ship is easy to operate, easy to debug, and easy to hand over.",
+    lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together. I build with the person who will run it in mind, so what I ship is easy to operate and easy to debug, whether I am the one on call or someone else is.",
     support: "Based in Nairobi, Kenya.",
   },
 } as const;
@@ -38,10 +38,10 @@ export const cv = {
 } as const;
 
 export const about = {
-  title: "Building systems that work in production",
+  title: "Shipping is the middle of the work, not the end",
   paragraphs: [
-    "I build software from the first idea to the live service. That covers the interface people use, the backend that powers it, the infrastructure that keeps it running, and the AI features and business tools that make it more useful.",
-    "My background spans full stack development, SRE, DevOps, and applied AI, so I care about how a feature feels to the person using it and also about how it behaves under load, during a failure, or at three in the morning. I like systems that are simple to operate and honest about their trade-offs.",
+    "My work has covered full stack development, SRE, DevOps, cloud, and applied AI, which means I have seen the same system from both sides: as the person building the feature and as the person responsible when it fails. That changed what I count as finished.",
+    "To me a system is finished when the people who depend on it no longer have to think about it. In practice that means choosing the simpler design over the clever one, writing down the trade-offs I made so the next person can challenge them, and building monitoring and handover into the first version instead of leaving them for a later cleanup.",
     "I am looking to work in a team where I can own systems end to end across AI, web, backend, and the tools around them.",
   ],
   photo: {
