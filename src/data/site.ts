@@ -10,7 +10,7 @@ export const site = {
   location: "Nairobi, Kenya",
   hero: {
     headline: "I take software from first idea to live service, and I stay once people depend on it.",
-    lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together. What I enjoy most is the full arc: sketching the idea, building it, shipping it, and staying close once real people depend on it.",
+    lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together.I build with the person who will run it in mind, so what I ship is easy to operate, easy to debug, and easy to hand over.",
     support: "Based in Nairobi, Kenya.",
   },
 } as const;

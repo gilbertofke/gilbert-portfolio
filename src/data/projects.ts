@@ -1,15 +1,14 @@
 import type { Lens, Project } from "@/lib/types";
 
 export const lensLabels: Record<Lens, string> = {
-  fullstack: "Full stack",
+  fullstack: "Web applications",
   backend: "Backend and infrastructure",
-  ai: "AI engineering",
-  zoho: "Zoho",
+  ai: "AI agents and automation",
+  zoho: "Zoho business systems",
 };
-
 export const projects: Project[] = [
   {
-    slug: "fullstack-project",
+    slug: "Web Application-project",
     title: "[Full stack project name]",
     oneLiner: "[One line on what this web application does and for whom]",
     lens: "fullstack",
