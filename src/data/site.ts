@@ -25,7 +25,7 @@ export const site = {
 export const help = {
   title: "How I can help",
   intro:
-    "I work with international startups first, and with Kenyan fintechs, SMEs, banks and NGOs. Every engagement starts small and ends with something written down that your team can keep and question.",
+    "I work with teams of any size, from early-stage startups to established organisations. Every engagement starts small and ends with something written down that your team can keep and question.",
   offers: [
     {
       title: "Connect AI to the systems you already run",
