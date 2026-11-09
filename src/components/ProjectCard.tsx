@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { lensLabels } from "@/data/projects";
 import type { Project, ProjectKind, ProjectStatus } from "@/lib/types";
+import ProjectPreview from "./ProjectPreview";
 
 const statusStyles: Record<
   ProjectStatus,
@@ -136,6 +137,7 @@ export default function ProjectCard({
           {status.label}
         </span>
       </div>
+      <ProjectPreview preview={project.preview} title={project.title} />
 
       <div
         className={
@@ -191,13 +193,9 @@ export default function ProjectCard({
             </p>
           </div>
         ) : (
-          <dl
-            className={
-              featured
-                ? "mt-6 space-y-4 rounded-lg border border-line bg-white p-5 md:col-start-2 md:row-span-2 md:row-start-1 md:mt-0"
-                : "mt-6 space-y-4 border-t border-line pt-6"
-            }
-          >
+          <details className={featured ? "mt-6 rounded-lg border border-line bg-white p-5 md:col-start-2 md:row-span-2 md:row-start-1 md:mt-0" : "mt-6 border-t border-line pt-4"}>
+            <summary className="cursor-pointer text-sm font-bold text-navy">Read the case study</summary>
+          <dl className="mt-4 space-y-4">
             {caseStudy.map(([label, value]) => (
               <div key={label}>
                 <dt className="text-xs font-bold uppercase tracking-[0.14em] text-navy">
@@ -207,6 +205,7 @@ export default function ProjectCard({
               </div>
             ))}
           </dl>
+          </details>
         )}
 
         {entries.length > 0 ? (
