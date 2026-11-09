@@ -13,9 +13,9 @@ export const site = {
     headline: "I take AI systems from first prototype to production, and I stay once people depend on them.",
     lead: "I design, deploy and monitor LLM-powered systems with the whole lifecycle in mind. That means evaluation before launch, cost per request while running, and privacy and governance from the first design decision. I come from full stack, backend and DevOps work, so I build for the person who will run the system, whether that is me or someone else.",
     support: "Based in Kenya. Open to remote roles.",
-    areas: [
-      "LLM and AI systems",
-      "MLOps and cloud infrastructure",
+      areas: [
+      "AI systems and MLOps",
+      "AI infrastructure and integrations",
       "Evaluation, cost and governance",
       "Backend and web foundations",
     ],

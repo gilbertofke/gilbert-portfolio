@@ -1,66 +1,30 @@
 import type { Lens, Project } from "@/lib/types";
 
 export const lensLabels: Record<Lens, string> = {
+  ai: "AI systems and MLOps",
+  infra: "AI infrastructure and integrations",
+  backend: "Backend and data services",
   fullstack: "Web applications",
-  backend: "Backend and infrastructure",
-  ai: "AI agents and automation",
-  zoho: "Zoho business systems",
 };
+
 export const projects: Project[] = [
   {
-    slug: "Web Application-project",
-    title: "[Full stack project name]",
-    oneLiner: "[One line on what this web application does and for whom]",
-    lens: "fullstack",
-    kind: "personal",
-    stack: ["Laravel", "React", "PostgreSQL"],
-    problem: "[...]",
-    architecture: "[...]",
-    outcome: "[...]",
-    tradeoff: "[...]",
-    links: {},
-    status: "placeholder",
-  },
-  {
-    slug: "bulk-sms-queue",
-    title: "[Backend project name]",
-    oneLiner: "[Job queue that sends bulk SMS and reconciles payment batches]",
-    lens: "backend",
-    kind: "client",
-    stack: ["FastAPI", "PostgreSQL", "Redis", "Docker", "Prometheus", "Grafana"],
-    problem: "[...]",
-    architecture: "[...]",
-    outcome: "[...]",
-    tradeoff: "[...]",
-    links: {},
-    status: "placeholder",
-  },
-  {
-    slug: "ai-project",
-    title: "[AI project name]",
-    oneLiner: "[One line on the AI system and the problem it solves]",
+    slug: "payment-message-extraction",
+    title: "Payment message extraction with a small open model",
+    oneLiner:
+      "Turns messy payment messages into clean, structured records with a fine-tuned open model, with quality and cost measured at every step.",
     lens: "ai",
     kind: "personal",
-    stack: ["Python", "FastAPI", "Qdrant"],
-    problem: "[...]",
-    architecture: "[...]",
-    outcome: "[...]",
-    tradeoff: "[...]",
+    stack: ["Python", "FastAPI", "Hugging Face", "PEFT", "vLLM", "AWS"],
+    problem:
+      "Payment confirmation messages arrive in many formats and mixed languages, and the details are often copied into records by hand. Pulling out the amount, counterparty, type and balance is a good fit for a small model, if it can be shown to be accurate and cheap.",
+    architecture:
+      "A synthetic and consented message set with a held-out test set, a baseline from a prompted base model, a LoRA fine-tune of a small open model, quantized serving behind a FastAPI gateway, and dashboards for latency, GPU use and cost per request.",
+    outcome:
+      "In progress. Results will be published here as field-level accuracy against the baseline, and cost per 1,000 messages.",
+    tradeoff:
+      "A small tuned model against a larger prompted one, compared on accuracy, speed and cost, with the fine-tune kept only if it wins.",
     links: {},
-    status: "placeholder",
-  },
-  {
-    slug: "zoho-project",
-    title: "[Zoho project name]",
-    oneLiner: "[One line on the business process this automates]",
-    lens: "zoho",
-    kind: "client",
-    stack: ["Zoho Creator", "Deluge", "Zoho Flow"],
-    problem: "[...]",
-    architecture: "[...]",
-    outcome: "[...]",
-    tradeoff: "[...]",
-    links: {},
-    status: "placeholder",
+    status: "building",
   },
 ];
