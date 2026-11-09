@@ -47,21 +47,32 @@ export default function Hero() {
               className="animate-rise mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
               style={{ animationDelay: "280ms" }}
             >
-              <a href="#projects" className="btn-primary">
+                            <a href="#contact" className="btn-primary">
+                Work with me
+              </a>
+              <a href="#projects" className="btn-secondary">
                 See projects
               </a>
-              <a
+                            <a
                 href={cv.path}
                 download={cv.downloadName}
-                className="btn-secondary"
+                className="btn-link"
               >
                 Download CV
-              </a>
-              <a href="#contact" className="btn-link">
-                Get in touch
-                <span aria-hidden="true" className="btn-arrow">
-                  &rarr;
-                </span>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4 shrink-0"
+                >
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
               </a>
             </div>
           </div>
