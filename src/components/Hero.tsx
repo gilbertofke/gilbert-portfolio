@@ -1,9 +1,8 @@
-import { lensLabels } from "@/data/projects";
 import { cv, site } from "@/data/site";
 import TypeIn from "./TypeIn";
 
 export default function Hero() {
-  const areas = Object.values(lensLabels);
+  const areas = site.hero.areas;
 
   return (
     <section id="top" className="border-b border-line">
@@ -39,7 +38,7 @@ export default function Hero() {
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
-                  {site.location}
+                  {site.hero.support}
                 </span>
               </p>
             </div>
