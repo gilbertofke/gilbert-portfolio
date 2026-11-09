@@ -49,7 +49,7 @@ export const about = {
   paragraphs: [
     "My work has covered full stack development, SRE, DevOps, cloud, and applied AI, which means I have seen the same system from both sides. I have been the person building the feature and the person responsible when it fails. That changed what I count as finished.",
     "In AI, I think finished means something specific. A model is only as trustworthy as the data it learned from and the infrastructure it runs on. So I care about the whole chain. That covers where the data comes from and how it is cleaned and verified, how the system is deployed and monitored, what it costs per request, and how privacy and security are handled from the first design decision. I write down the trade-offs I make so the next person can challenge them.",
-    "I am looking to join a team that runs AI in production, where I can own the path from data to a monitored service.",
+    "I hold myself to four commitments. Data governance comes first, so I know where data came from and what it may be used for. Cost is a design constraint, not a surprise at the end of the month. Reliability and security are built in from the first design, not added later. And I use open models and open tools where they fit, because they keep options and costs in the hands of the people who run the system.",
   ],
   photo: {
     src: "/images/portrait.jpg",
