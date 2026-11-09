@@ -48,5 +48,7 @@ export type Post = {
   title: string;
   url: string;
   platform: "Hashnode" | "Medium";
-  date?: string;
+  date?: string; // ISO format,
+  summary?: string;
+  topic?: string;
 };
