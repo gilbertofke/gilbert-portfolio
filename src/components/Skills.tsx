@@ -8,8 +8,9 @@ export default function Skills() {
         <SectionHeading eyebrow="Skills" title="What I work with" />
         <p className="mt-6 max-w-prose text-muted">
           Grouped by the kind of work I do. In each group, the first row is
-          what I reach for most, and the second is what I pick up when a
-          project calls for it. No single project uses everything listed here.
+          what I reach for most, the second is what I pick up when a project
+          calls for it, and the third is what I am learning now. No single
+          project uses everything listed here.
         </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -44,26 +45,49 @@ export default function Skills() {
                   ))}
                 </ul>
 
-                {group.familiar.length > 0 ? (
-                  <div className="mt-auto pt-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
-                      Also work with
-                    </p>
-                    <ul
-                      className="mt-3 flex flex-wrap gap-2"
-                      aria-label={`${group.title}: other tools`}
-                    >
-                      {group.familiar.map((skill) => (
-                        <li
-                          key={skill}
-                          className="rounded-md border border-navy/10 px-2.5 py-1 text-sm text-navy"
-                        >
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
+                <div className="mt-auto space-y-6 pt-6">
+                  {group.familiar.length > 0 ? (
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
+                        Also work with
+                      </p>
+                      <ul
+                        className="mt-3 flex flex-wrap gap-2"
+                        aria-label={`${group.title}: other tools`}
+                      >
+                        {group.familiar.map((skill) => (
+                          <li
+                            key={skill}
+                            className="rounded-md border border-navy/10 px-2.5 py-1 text-sm text-navy"
+                          >
+                            {skill}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+
+                  {group.learning && group.learning.length > 0 ? (
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">
+                        Currently learning
+                      </p>
+                      <ul
+                        className="mt-3 flex flex-wrap gap-2"
+                        aria-label={`${group.title}: currently learning`}
+                      >
+                        {group.learning.map((skill) => (
+                          <li
+                            key={skill}
+                            className="rounded-md border border-dashed border-navy/30 px-2.5 py-1 text-sm text-muted"
+                          >
+                            {skill}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
               </div>
             </article>
           ))}
