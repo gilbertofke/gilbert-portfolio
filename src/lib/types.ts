@@ -22,6 +22,11 @@ export type Project = {
     docs?: string;
     dashboard?: string;
   };
+  preview?: {
+    src: string;
+    alt: string;
+    type?: "image" | "video";
+  };
   status: ProjectStatus;
 };
 
