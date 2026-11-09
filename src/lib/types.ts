@@ -1,4 +1,4 @@
-export type Lens = "fullstack" | "backend" | "ai" | "zoho";
+export type Lens = "fullstack" | "backend" | "ai" | "infra";
 
 export type ProjectStatus = "placeholder" | "building" | "live";
 
@@ -31,6 +31,7 @@ export type SkillGroup = {
   summary: string;
   core: string[];
   familiar: string[];
+  learning?: string[];
 };
 
 export type NavLink = {
