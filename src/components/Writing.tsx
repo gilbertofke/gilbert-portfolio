@@ -1,4 +1,4 @@
-import { latestPosts, socials } from "@/data/site";
+import { latestPosts, site, socials } from "@/data/site";
 import SectionHeading from "./SectionHeading";
 
 function HashnodeIcon() {
@@ -76,6 +76,33 @@ const profileLabelClass =
 const linkClass =
   "font-medium text-teal underline decoration-teal/40 underline-offset-4 hover:decoration-teal focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turq";
 
+  function formatDate(iso: string) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+const postsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: latestPosts.map((post, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: post.url,
+      datePublished: post.date,
+      description: post.summary,
+      author: { "@type": "Person", name: site.name, url: site.url },
+    },
+  })),
+};
+
 export default function Writing() {
   return (
     <section id="writing" className="section-pad border-t border-line">
@@ -102,28 +129,64 @@ export default function Writing() {
           </ul>
         </div>
 
-        {latestPosts.length > 0 && (
-          <ul className="mt-10 divide-y divide-navy/10 border-y border-navy/10">
-            {latestPosts.map((post) => (
-              <li
-                key={post.url}
-                className="flex flex-col gap-1 py-4 md:flex-row md:items-baseline md:justify-between md:gap-6"
-              >
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkClass}
-                >
-                  {post.title}
-                </a>
-                <p className="text-sm text-muted">
-                  {post.platform}
-                  {post.date ? `, ${post.date}` : ""}
-                </p>
-              </li>
-            ))}
-          </ul>
+                {latestPosts.length > 0 && (
+          <div className="mt-10">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-navy">
+              Latest articles
+            </h3>
+            <ul className="mt-4 grid gap-4">
+              {latestPosts.map((post) => (
+                <li key={post.url}>
+                  <article className="rounded-lg border border-navy/10 p-5">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+                      {post.topic && (
+                        <span className="rounded-full border border-navy/10 px-2.5 py-0.5 text-xs font-medium text-navy">
+                          {post.topic}
+                        </span>
+                      )}
+                      <span>{post.platform}</span>
+                      {post.date && (
+                        <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      )}
+                    </div>
+                    <h4 className="mt-3 text-lg font-semibold text-navy">
+                      <a
+                        href={post.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={linkClass}
+                      >
+                        {post.title}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </h4>
+                    {post.summary && (
+                      <p className="mt-2 max-w-prose text-muted">
+                        {post.summary}
+                      </p>
+                    )}
+                    <a
+                      href={post.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-hidden="true"
+                      tabIndex={-1}
+                      className={`${linkClass} mt-4 inline-flex min-h-11 items-center`}
+                    >
+                      Read on {post.platform}
+                      <span className="ml-1">&rarr;</span>
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(postsJsonLd).replace(/</g, "\\u003c"),
+              }}
+            />
+          </div>
         )}
 
         <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
