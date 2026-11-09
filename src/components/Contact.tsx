@@ -151,9 +151,10 @@ export default function Contact() {
               Get in touch
             </h2>
             <p className="mt-4 text-paper/80">
-              I am open to full-time roles and project work across AI, web,
-              backend, and the tools around them. Send a message and I will get
-              back to you.
+              I am open to full-time roles and to project work, including
+              connecting AI to existing systems, planning cloud, hybrid or
+              on-premises deployments, and reviewing AI systems for cost and
+              risk. Send a message and I will get back to you.
             </p>
 
             <ul className="mt-8 flex flex-col gap-2 border-t border-turq/30 pt-6">
