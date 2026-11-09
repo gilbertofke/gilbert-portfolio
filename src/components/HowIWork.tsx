@@ -1,5 +1,28 @@
 const em = "font-semibold text-turq";
 
+const steps = [
+  {
+    lead: "Map the need.",
+    text: "I start with the problem and the systems already in place, and I agree what success looks like before I choose any model.",
+  },
+  {
+    lead: "Start simple and measure.",
+    text: "Prompting and retrieval come before fine-tuning, and a small open model comes before a large paid one, unless the evidence says otherwise. I build a test set from real examples and report quality, speed and cost per request against a baseline.",
+  },
+  {
+    lead: "Build in governance and security.",
+    text: "Data provenance, access limits, privacy handling and an audit trail are part of the first design, not a patch added later.",
+  },
+  {
+    lead: "Deploy where it fits and watch it.",
+    text: "Cloud, hybrid or on-prem depends on cost, privacy and who will run it. Monitoring and cost alerts go in from the first release.",
+  },
+  {
+    lead: "Hand over in writing.",
+    text: "Architecture decisions, runbooks and trade-offs are documented so the team can run the system, question it and change it without me.",
+  },
+] as const;
+
 export default function HowIWork() {
   return (
     <section
@@ -18,27 +41,32 @@ export default function HowIWork() {
               id="how-i-work-title"
               className="mt-4 text-2xl font-bold leading-tight text-paper md:text-3xl"
             >
-              People first, then code.
+              Need first, evidence always.
             </h2>
+            <p className="mt-4 leading-relaxed text-paper/80">
+              The same five steps apply whether the system runs in the cloud,
+              on premises, or across both.
+            </p>
           </div>
 
-          <div className="mt-5 md:mt-0">
-            <p className="leading-relaxed text-paper/90 md:text-lg">
-              I start with <strong className={em}>the person on the other end</strong>,
-              not the technology: who&apos;s struggling, what it costs them
-              today, and what better looks like. Training more than 100 refugee
-              youth in Kakuma at AReL taught me to{" "}
-              <strong className={em}>build for the conditions people actually have</strong>,
-              and my time as an SRE at Ablestate taught me to ask whether it
-              stays up, whether we&apos;ll see it break, and whether the next
-              person can understand it. At Elloe AI and Finlanza, that became
-              products people rely on, and I{" "}
-              <strong className={em}>explain every trade-off in plain language</strong>,
-              whether I&apos;m talking to an engineer or a business owner.
-            </p>
-            <p className="mt-4 border-t border-turq/30 pt-4 font-medium leading-snug text-paper md:text-lg">
-              Good software gives people back time, clarity or money.
-              That&apos;s the bar I hold my work to.
+          <div className="mt-8 md:mt-0">
+            <ol className="space-y-5">
+              {steps.map((step, index) => (
+                <li key={step.lead} className="flex items-baseline gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="font-heading text-sm font-bold text-turq"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="leading-relaxed text-paper/90 md:text-lg">
+                    <strong className={em}>{step.lead}</strong> {step.text}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-6 border-t border-turq/30 pt-4 font-medium leading-snug text-paper md:text-lg">
+              The goal is an AI system the team can run, afford and trust.
             </p>
           </div>
         </div>
