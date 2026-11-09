@@ -22,6 +22,31 @@ export const site = {
   },
 } as const;
 
+export const help = {
+  title: "How I can help",
+  intro:
+    "I work with international startups first, and with Kenyan fintechs, SMEs, banks and NGOs. Every engagement starts small and ends with something written down that your team can keep and question.",
+  offers: [
+    {
+      title: "Connect AI to the systems you already run",
+      text: "I add AI features such as reading payment messages, documents or tickets into your existing software, without a rebuild and with quality measured before anything goes live.",
+    },
+    {
+      title: "Plan where your AI should run",
+      text: "Cloud, hybrid or on premises, with open models or paid ones. I weigh cost, privacy and who will operate the system, and you receive a written recommendation you can act on.",
+    },
+    {
+      title: "Review an AI setup for cost and risk",
+      text: "I look at what an existing system costs per request, where your data goes and what could fail. You receive a prioritised written review, and I can help carry out the changes.",
+    },
+    {
+      title: "Map the need before you build",
+      text: "A short engagement that ends in a written plan covering the problem, how success will be measured, the options, a cost estimate and the first steps.",
+    },
+  ],
+  cta: "Start a conversation",
+} as const;
+
 export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
