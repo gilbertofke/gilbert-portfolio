@@ -15,7 +15,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const fullTitle = `${site.name} | ${site.tagline}`;
+const fullTitle = `${site.fullName} | ${site.tagline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     template: `%s | ${site.shortName}`,
   },
   description: site.description,
-  authors: [{ name: site.name, url: site.url }],
+  authors: [{ name: site.fullName, url: site.url }],
   openGraph: {
     title: fullTitle,
     description: site.description,
     url: site.url,
-    siteName: site.name,
+    siteName: site.fullName,
     locale: "en_KE",
     type: "website",
   },

@@ -3,15 +3,22 @@ import type { NavLink, Post } from "@/lib/types";
 export const site = {
   name: "Gilbert Cheruiyot",
   shortName: "Gilbert Cheruiyot",
+  fullName: "Gilbert Cheruiyot Tangus",
   url: "https://tangus.vercel.app",
-  tagline: "Complete software systems",
+  tagline: "AI Systems Engineer, MLOps and Cloud",
   description:
-    "Gilbert Cheruiyot builds complete software systems: AI-powered products, web applications, and the infrastructure and business tools behind them.",
-  location: "Nairobi, Kenya",
+    "Gilbert Cheruiyot Tangus is an AI systems engineer who builds, deploys and monitors LLM systems, with evaluation, cost control and privacy built in.",
+  location: "Kenya",
   hero: {
-    headline: "I take software from first idea to live service, and I stay once people depend on it.",
-    lead: "I work across AI products, web applications, backend services, and the business tools that hold a company together. I build with the person who will run it in mind, so what I ship is easy to operate and easy to debug, whether I am the one on call or someone else is.",
-    support: "Based in Nairobi, Kenya.",
+    headline: "I take AI systems from first prototype to production, and I stay once people depend on them.",
+    lead: "I design, deploy and monitor LLM-powered systems with the whole lifecycle in mind. That means evaluation before launch, cost per request while running, and privacy and governance from the first design decision. I come from full stack, backend and DevOps work, so I build for the person who will run the system, whether that is me or someone else.",
+    support: "Based in Kenya. Open to remote roles.",
+    areas: [
+      "LLM and AI systems",
+      "MLOps and cloud infrastructure",
+      "Evaluation, cost and governance",
+      "Backend and web foundations",
+    ],
   },
 } as const;
 
@@ -40,9 +47,9 @@ export const cv = {
 export const about = {
   title: "Shipping is the middle of the work, not the end",
   paragraphs: [
-    "My work has covered full stack development, SRE, DevOps, cloud, and applied AI, which means I have seen the same system from both sides: as the person building the feature and as the person responsible when it fails. That changed what I count as finished.",
-    "To me a system is finished when the people who depend on it no longer have to think about it. In practice that means choosing the simpler design over the clever one, writing down the trade-offs I made so the next person can challenge them, and building monitoring and handover into the first version instead of leaving them for a later cleanup.",
-    "I am looking to work in a team where I can own systems end to end across AI, web, backend, and the tools around them.",
+    "My work has covered full stack development, SRE, DevOps, cloud, and applied AI, which means I have seen the same system from both sides. I have been the person building the feature and the person responsible when it fails. That changed what I count as finished.",
+    "In AI, I think finished means something specific. A model is only as trustworthy as the data it learned from and the infrastructure it runs on. So I care about the whole chain. That covers where the data comes from and how it is cleaned and verified, how the system is deployed and monitored, what it costs per request, and how privacy and security are handled from the first design decision. I write down the trade-offs I make so the next person can challenge them.",
+    "I am looking to join a team that runs AI in production, where I can own the path from data to a monitored service.",
   ],
   photo: {
     src: "/images/portrait.jpg",
