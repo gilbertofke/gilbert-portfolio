@@ -54,8 +54,8 @@ export default function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Work I have built"
-          intro="Each project is a short case study: the problem, how it is built, what came of it, and the trade-offs I accepted."
-        />
+          intro="Each project is a short case study covering the problem, how it is built, what came of it, and the trade-offs I accepted."
+          />
 
         {hasPlaceholders ? (
           <p className="mt-3 max-w-2xl text-sm text-muted">
