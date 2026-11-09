@@ -6,26 +6,25 @@ export const skillGroups: SkillGroup[] = [
     id: "ai",
     title: lensLabels.ai,
     summary:
-      "Designing and shipping AI features that work inside real products, with evaluation and cost in mind.",
+      "Designing, evaluating and shipping AI features that work inside real products.",
     core: [
       "Python",
       "LLM agents and tool calling",
       "Retrieval augmented generation (RAG)",
-      "Vector search (Qdrant)",
+      "Vector search",
     ],
     familiar: ["Prompt and evaluation design"],
     learning: [
       "Fine-tuning open models (LoRA and QLoRA)",
       "Quantization",
       "Model serving with vLLM",
-      "Cost and GPU tracking",
     ],
   },
   {
     id: "infra",
     title: lensLabels.infra,
     summary:
-      "Deploying AI where it fits, connecting it to the systems a business already runs, and keeping cost and access under control.",
+      "Deploying AI where it fits and connecting it to the systems a business already runs.",
     core: [
       "AWS",
       "Docker",
@@ -48,7 +47,7 @@ export const skillGroups: SkillGroup[] = [
     id: "backend",
     title: lensLabels.backend,
     summary: "Reliable services, data stores, and the plumbing that keeps them running.",
-    core: ["Python", "FastAPI", "PostgreSQL", "Redis"],
+    core: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
     familiar: ["AWS (SQS, SNS)", "LocalStack"],
   },
   {
