@@ -27,6 +27,7 @@ export type Project = {
     alt: string;
     type?: "image" | "video";
   };
+  featured?: boolean;
   status: ProjectStatus;
 };
 

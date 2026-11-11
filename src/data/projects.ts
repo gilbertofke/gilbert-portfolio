@@ -40,5 +40,6 @@ export const projects: Project[] = [
       type: "image",
     },
     status: "building",
+    featured: true,
   },
 ];
