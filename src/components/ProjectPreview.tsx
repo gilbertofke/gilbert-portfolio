@@ -4,15 +4,21 @@ import type { Project } from "@/lib/types";
 type ProjectPreviewProps = {
   preview: Project["preview"];
   title: string;
+  wide?: boolean;
 };
 
 export default function ProjectPreview({
   preview,
   title,
+  wide = false,
 }: ProjectPreviewProps) {
+  const ratio = wide ? "aspect-video" : "aspect-[2/1]";
+
   if (!preview) {
     return (
-      <div className="flex aspect-video w-full items-center justify-center border-b border-dashed border-navy/25 bg-white px-6 text-center text-sm text-muted">
+      <div
+        className={`flex ${ratio} w-full items-center justify-center border-b border-dashed border-navy/25 bg-white px-6 text-center text-sm text-muted`}
+      >
         <p>
           Preview coming soon
           <span className="sr-only"> for {title}</span>
@@ -23,7 +29,9 @@ export default function ProjectPreview({
 
   if (preview.type === "video") {
     return (
-      <div className="aspect-video w-full overflow-hidden border-b border-line bg-white">
+      <div
+        className={`${ratio} w-full overflow-hidden border-b border-line bg-white`}
+      >
         <video
           src={preview.src}
           aria-label={preview.alt}
@@ -38,12 +46,14 @@ export default function ProjectPreview({
   }
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden border-b border-line bg-white">
+    <div
+      className={`relative ${ratio} w-full overflow-hidden border-b border-line bg-white`}
+    >
       <Image
         src={preview.src}
         alt={preview.alt}
         fill
-        sizes="(min-width: 768px) 50vw, 100vw"
+        sizes={wide ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
         className="object-cover"
       />
     </div>

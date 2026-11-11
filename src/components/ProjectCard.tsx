@@ -137,7 +137,7 @@ export default function ProjectCard({
           {status.label}
         </span>
       </div>
-      <ProjectPreview preview={project.preview} title={project.title} />
+      <ProjectPreview preview={project.preview} title={project.title} wide={featured} />
 
       <div
         className={
@@ -162,7 +162,7 @@ export default function ProjectCard({
           >
             {project.title}
           </h3>
-          <p className="mt-2 text-muted">{project.oneLiner}</p>
+          <p className="mt-2 line-clamp-3 text-muted">{project.oneLiner}</p>
 
           <ul
             className="mt-5 flex flex-wrap gap-2"
