@@ -5,19 +5,19 @@ export const site = {
   shortName: "Gilbert Cheruiyot",
   fullName: "Gilbert Cheruiyot Tangus",
   url: "https://tangus.vercel.app",
-  tagline: "AI Systems Engineer, MLOps and Cloud",
+  tagline: "AI Systems and Automation Engineer",
   description:
-    "Gilbert Cheruiyot Tangus is an AI systems engineer who builds, deploys and monitors LLM systems, with evaluation, cost control and privacy built in.",
+    "Gilbert Cheruiyot Tangus is an AI systems and automation engineer and consultant who builds agents, integrations and inference infrastructure, with evaluation, cost control and privacy built in.",
   location: "Kenya",
   hero: {
-    headline: "I take AI systems from first prototype to production, and I stay once people depend on them.",
-    lead: "I design, deploy and monitor LLM-powered systems with the whole lifecycle in mind. That means evaluation before launch, cost per request while running, and privacy and governance from the first design decision. I come from full stack, backend and DevOps work, so I build for the person who will run the system, whether that is me or someone else.",
-    support: "Based in Kenya. Open to remote roles.",
-      areas: [
-      "AI systems and MLOps",
-      "AI infrastructure and integrations",
-      "Evaluation, cost and governance",
-      "Backend and web foundations",
+    headline: "I build AI products and the infrastructure they run on.",
+    lead: "I build AI products and the infrastructure beneath them, from agents, integrations, pipelines and developer tools to the models, the hardware they run on and what each request costs. I treat security, data governance and unit economics as design decisions from the first day, and I favour open models and open tools because they keep control and cost with the people who run the system. I also help teams audit, migrate and add AI to what they already use, without a rebuild.",
+    support: "Based in Kenya. Open to remote roles and consulting. Now building Bodata AI.",
+    areas: [
+      "Agents, pipelines and integrations built on models",
+      "Inference, GPUs and AI unit economics",
+      "Security, governance and open tooling",
+      "Consulting through audits, migrations and implementation",
     ],
   },
 } as const;
@@ -28,20 +28,20 @@ export const help = {
     "I work with teams of any size, from early-stage startups to established organisations. Every engagement starts small and ends with something written down that your team can keep and question.",
   offers: [
     {
-      title: "Connect AI to the systems you already run",
-      text: "I add AI features such as reading payment messages, documents or tickets into your existing software, without a rebuild and with quality measured before anything goes live.",
+      title: "AI audit",
+      text: "I review an AI system you already run: what it costs per request, where your data goes, how output quality is measured and what could fail. You receive a prioritised written report, and I can help carry out the fixes.",
     },
     {
-      title: "Plan where your AI should run",
-      text: "Cloud, hybrid or on premises, with open models or paid ones. I weigh cost, privacy and who will operate the system, and you receive a written recommendation you can act on.",
+      title: "Needs assessment",
+      text: "A short engagement before you spend on AI. I talk to the people who use the process and the people who run it, find where AI helps and where it does not, and write up the problem, how success will be measured, the options, a cost estimate and the first steps.",
     },
     {
-      title: "Review an AI setup for cost and risk",
-      text: "I look at what an existing system costs per request, where your data goes and what could fail. You receive a prioritised written review, and I can help carry out the changes.",
+      title: "AI systems migration",
+      text: "Moving AI workloads from a paid closed API to open models, between clouds, or onto your own servers. I run the old and new setups side by side on your own data, compare quality and cost, and switch only when the numbers justify it.",
     },
     {
-      title: "Map the need before you build",
-      text: "A short engagement that ends in a written plan covering the problem, how success will be measured, the options, a cost estimate and the first steps.",
+      title: "AI implementation",
+      text: "Adding AI to the software and workflows you already use, such as reading payment messages, documents or tickets, through code or tools like n8n, Make and Zapier. No rebuild, quality measured before go-live, and a tested, monitored, documented handover.",
     },
   ],
   cta: "Start a conversation",
@@ -70,11 +70,11 @@ export const cv = {
 } as const;
 
 export const about = {
-  title: "Shipping is the middle of the work, not the end",
+  title: "One engineer across the whole AI stack",
   paragraphs: [
-    "My work has covered full stack development, SRE, DevOps, cloud, and applied AI, which means I have seen the same system from both sides. I have been the person building the feature and the person responsible when it fails. That changed what I count as finished.",
-    "In AI, I think finished means something specific. A model is only as trustworthy as the data it learned from and the infrastructure it runs on. So I care about the whole chain. That covers where the data comes from and how it is cleaned and verified, how the system is deployed and monitored, what it costs per request, and how privacy and security are handled from the first design decision. I write down the trade-offs I make so the next person can challenge them.",
-    "I hold myself to four commitments. Data governance comes first, so I know where data came from and what it may be used for. Cost is a design constraint, not a surprise at the end of the month. Reliability and security are built in from the first design, not added later. And I use open models and open tools where they fit, because they keep options and costs in the hands of the people who run the system.",
+    "I am an AI systems engineer who follows a product from its first line of code to its monthly bill. Full stack, backend, DevOps and site reliability work taught me to build for users, ship reliably and count the cost, and I now apply that to AI products, agents and the infrastructure beneath them.",
+    "Agents earn trust through evidence. I build an evaluation harness before launch so every change can be judged, trace each step so wrong answers can be explained, keep runs reproducible so incidents can be replayed, and limit each agent to the tenant and permissions of the person it serves so one bad prompt cannot become a breach. I monitor quality, latency and cost per request, and I favour open models and tools where they fit.",
+    "Right now I am building Bodata AI, a low-cost inference platform for e-mobility fleet telemetry. I also take on audits, assessments, migrations and implementations for teams who want AI inside the systems they already have.",
   ],
   photo: {
     src: "/images/portrait.jpg",
