@@ -9,22 +9,36 @@ export const lensLabels: Record<Lens, string> = {
 
 export const projects: Project[] = [
   {
-    slug: "payment-message-extraction",
-    title: "Payment message extraction with a small open model",
+    slug: "bodata-ai",
+    title: "Bodata AI: low-cost inference for e-mobility fleet telemetry",
     oneLiner:
-      "Turns messy payment messages into clean, structured records with a fine-tuned open model, with quality and cost measured at every step.",
-    lens: "ai",
+      "Turns raw battery telemetry from electric motorcycle fleets into structured, actionable verdicts with a small open model, built to stay fast and cheap under bursts of data.",
+    lens: "infra",
     kind: "personal",
-    stack: ["Python", "FastAPI", "Hugging Face", "PEFT", "vLLM", "AWS"],
+    stack: [
+      "Python",
+      "FastAPI",
+      "Kafka",
+      "Redis",
+      "vLLM",
+      "Kubernetes",
+      "Terraform",
+      "Prometheus",
+    ],
     problem:
-      "Payment confirmation messages arrive in many formats and mixed languages, and the details are often copied into records by hand. Pulling out the amount, counterparty, type and balance is a good fit for a small model, if it can be shown to be accurate and cheap.",
+      "Fleet batteries stream voltage, current and temperature over unreliable cellular links. Sending every packet to a large hosted model is slow and costly, and most packets are healthy and need no model at all. The hard part is catching the few that signal trouble in time to act, without paying for the rest.",
     architecture:
-      "A synthetic and consented message set with a held-out test set, a baseline from a prompted base model, a LoRA fine-tune of a small open model, quantized serving behind a FastAPI gateway, and dashboards for latency, GPU use and cost per request.",
+      "A FastAPI gateway acknowledges each packet immediately and puts it on Kafka. A Redis cache clears routine healthy readings at no model cost. Anomalies go to autoscaled workers that call a quantized open model on vLLM, constrained to return valid JSON. Langfuse, Prometheus and Grafana track latency, queue lag and cost, and Terraform defines the cloud setup.",
     outcome:
-      "In progress. Results will be published here as field-level accuracy against the baseline, and cost per 1,000 messages.",
+      "In progress, tested on synthetic telemetry. Results will be published here as p95 latency, share of traffic handled without the model, schema validity and cost per 1,000 packets, measured by a load test anyone can rerun.",
     tradeoff:
-      "A small tuned model against a larger prompted one, compared on accuracy, speed and cost, with the fine-tune kept only if it wins.",
+      "Caching and queueing add moving parts. They are only worth it if the measured cost and latency gains beat the extra complexity, and the published numbers will show whether they do.",
     links: {},
+    preview: {
+      src: "/images/bodata-ai.webp",
+      alt: "Concept illustration: an electric motorcycle sends battery data over cellular signals to Bodata, which shows a dashboard with battery health, a heat alert and suggested actions.",
+      type: "image",
+    },
     status: "building",
   },
 ];
