@@ -31,7 +31,8 @@ export default function Projects() {
       : projects.filter((project) => project.lens === filter);
 
   const single = visible.length === 1;
-  const wideLast = !single && visible.length % 2 === 1;
+  const lead = single ? visible : visible.filter((project) => project.featured);
+  const rest = single ? [] : visible.filter((project) => !project.featured);
 
   const hasPlaceholders = projects.some(
     (project) => project.status === "placeholder",
@@ -109,27 +110,26 @@ export default function Projects() {
         </p>
 
         {visible.length > 0 ? (
-          <ul
-            key={filter}
-            className={`mt-4 grid gap-6 ${single ? "" : "md:grid-cols-2"}`}
-          >
-            {visible.map((project, index) => {
-              const isLast = index === visible.length - 1;
-              const spansBoth = wideLast && isLast;
-
-              return (
-                <li
-                  key={project.slug}
-                  className={`flex ${spansBoth ? "md:col-span-2" : ""}`}
-                >
-                  <ProjectCard
-                    project={project}
-                    featured={single || spansBoth}
-                  />
-                </li>
-              );
-            })}
-          </ul>
+          <div key={filter} className="mt-4 space-y-6">
+            {lead.length > 0 ? (
+              <ul className="grid gap-6">
+                {lead.map((project) => (
+                  <li key={project.slug} className="flex">
+                    <ProjectCard project={project} featured />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {rest.length > 0 ? (
+              <ul className="grid gap-6 md:grid-cols-2">
+                {rest.map((project) => (
+                  <li key={project.slug} className="flex">
+                    <ProjectCard project={project} />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         ) : (
           <div className="animate-rise mt-4 rounded-xl border border-dashed border-navy/25 bg-paper px-6 py-10 text-center">
             <span

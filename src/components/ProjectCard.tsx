@@ -126,7 +126,7 @@ export default function ProjectCard({
   ] as const;
 
   return (
-    <article className="animate-rise flex h-full w-full flex-col overflow-hidden rounded-xl border border-navy/15 bg-paper shadow-sm transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-teal/60 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+    <article id={project.slug} className="scroll-mt-24 animate-rise flex h-full w-full flex-col overflow-hidden rounded-xl border border-navy/15 bg-paper shadow-sm transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-teal/60 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
       <div className="flex flex-wrap items-center justify-between gap-2 bg-navy px-6 py-3 md:px-7">
         <p className="text-xs font-bold uppercase tracking-[0.14em] text-turq">
           {lensLabels[project.lens]}
