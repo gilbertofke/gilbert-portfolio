@@ -11,8 +11,8 @@ export const site = {
   location: "Kenya",
   hero: {
     headline: "I build AI products and the infrastructure they run on.",
-    lead: "I build AI products and the infrastructure beneath them, from agents, integrations, pipelines and developer tools to the models, the hardware they run on and what each request costs. I treat security, data governance and unit economics as design decisions from the first day, and I favour open models and open tools because they keep control and cost with the people who run the system. I also help teams audit, migrate and add AI to what they already use, without a rebuild.",
-    support: "Based in Kenya. Open to remote roles and consulting. Now building Bodata AI.",
+    lead: "Security, data governance and cost are designed in from day one. I favour open models and tools, and I help teams add AI to what they already use without a rebuild.",
+    support: "Based in Kenya. Open to remote roles and consulting.",
     areas: [
       "Agents, pipelines and integrations built on models",
       "Inference, GPUs and AI unit economics",
