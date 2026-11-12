@@ -1,4 +1,4 @@
-<h1 align="center">gilbert-portfolio</h1>
+<h1 align="center">Gilbert Tangus Portfolio</h1>
 
 <p align="center">
   The source of my portfolio site, built with Next.js, TypeScript and Tailwind CSS.
