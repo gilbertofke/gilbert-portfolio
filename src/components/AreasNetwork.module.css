@@ -1,0 +1,66 @@
+.ring {
+  transform-box: view-box;
+  animation: spin 24s linear infinite;
+}
+
+.pulse {
+  stroke-dasharray: 22 200;
+  stroke-dashoffset: 22;
+  animation: travel 2.4s ease-in-out infinite;
+}
+
+.halo {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes travel {
+  from {
+    stroke-dashoffset: 22;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .pulse,
+  .halo {
+    animation: none;
+  }
+
+  .pulse {
+    opacity: 0;
+  }
+
+  .halo {
+    opacity: 0.4;
+  }
+}
+
+.core {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .core {
+    animation: none;
+    opacity: 0.4;
+  }
+}
