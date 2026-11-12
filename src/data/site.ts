@@ -74,7 +74,7 @@ export const about = {
   paragraphs: [
     "I am an AI systems engineer who follows a product from its first line of code to its monthly bill. Full stack, backend, DevOps and site reliability work taught me to build for users, ship reliably and count the cost, and I now apply that to AI products, agents and the infrastructure beneath them.",
     "Agents earn trust through evidence. I build an evaluation harness before launch so every change can be judged, trace each step so wrong answers can be explained, keep runs reproducible so incidents can be replayed, and limit each agent to the tenant and permissions of the person it serves so one bad prompt cannot become a breach. I monitor quality, latency and cost per request, and I favour open models and tools where they fit.",
-    "Right now I am building Bodata AI, a low-cost inference platform for e-mobility fleet telemetry. I also take on audits, assessments, migrations and implementations for teams who want AI inside the systems they already have.",
+    "I take on audits, assessments, migrations and implementations for teams who want AI inside the systems they already have.",
   ],
   photo: {
     src: "/images/portrait.jpg",
