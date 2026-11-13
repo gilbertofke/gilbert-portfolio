@@ -32,12 +32,10 @@ export type Project = {
 };
 
 export type SkillGroup = {
-  id: Lens;
+  id: string;
   title: string;
   summary: string;
   core: string[];
-  familiar: string[];
-  learning?: string[];
 };
 
 export type NavLink = {
