@@ -1,60 +1,101 @@
-import { lensLabels } from "@/data/projects";
 import type { SkillGroup } from "@/lib/types";
 
+// Held back until true: "Multi-GPU tensor parallelism" and
+// "Open-source contributions" (add after the first upstream fix, Day 27).
 export const skillGroups: SkillGroup[] = [
   {
-    id: "ai",
-    title: lensLabels.ai,
+    id: "serving",
+    title: "LLM serving and inference",
     summary:
-      "Designing, evaluating and shipping AI features that work inside real products.",
+      "Running open models efficiently and knowing what each request costs.",
     core: [
-      "Python",
-      "LLM agents and tool calling",
-      "Retrieval augmented generation (RAG)",
-      "Vector search",
-    ],
-    familiar: ["Prompt and evaluation design"],
-    learning: [
-      "Fine-tuning open models (LoRA and QLoRA)",
-      "Quantization",
-      "Model serving with vLLM",
+      "vLLM",
+      "Ollama and llama.cpp",
+      "GGUF and quantization",
+      "LoRA and QLoRA",
+      "LiteLLM gateway",
+      "OpenAI-compatible APIs",
+      "Batch and streaming inference",
     ],
   },
   {
-    id: "infra",
-    title: lensLabels.infra,
+    id: "agents",
+    title: "Agents, RAG and search",
     summary:
-      "Deploying AI where it fits and connecting it to the systems a business already runs.",
+      "Agent runtimes and retrieval that stay grounded in real documents.",
     core: [
-      "AWS",
+      "LLM agents and tool calling",
+      "Agent runtimes",
+      "LangGraph, CrewAI and AutoGen",
+      "Hermes and OpenClaw",
+      "RAG and vector search",
+      "ChromaDB and FAISS",
+      "Hybrid search and re-ranking",
+      "SearXNG and web scraping",
+      "Prompt and retrieval evaluation",
+    ],
+  },
+  {
+    id: "kubernetes",
+    title: "Kubernetes, cloud and self-hosting",
+    summary:
+      "Services a team can run on its own infrastructure or in the cloud.",
+    core: [
       "Docker",
-      "System integrations (REST APIs and webhooks)",
-      "Event streaming (Kafka)",
-    ],
-    familiar: [
-      "AWS EKS (Kubernetes)",
-      "Prometheus",
-      "Grafana",
-      "Zoho CRM and Creator integrations",
-    ],
-    learning: [
-      "Hybrid and on-premises AI deployment",
-      "Cost and governance controls",
-      "OpenTelemetry",
+      "Kubernetes (AWS EKS)",
+      "Helm and Kubernetes-native deployments",
+      "KIND",
+      "Traefik and MetalLB",
+      "Longhorn",
+      "NetworkPolicies",
+      "AWS (SQS and SNS)",
     ],
   },
   {
     id: "backend",
-    title: lensLabels.backend,
-    summary: "Reliable services, data stores, and the plumbing that keeps them running.",
-    core: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
-    familiar: ["AWS (SQS, SNS)", "LocalStack"],
+    title: "Backend, data and reliability",
+    summary:
+      "Reliable services, from ingest to storage, with monitoring built in.",
+    core: [
+      "Python and FastAPI",
+      "Pydantic",
+      "PostgreSQL and TimescaleDB",
+      "Redis",
+      "Kafka and MQTT",
+      "REST APIs and webhooks",
+      "ONNX and onnxruntime",
+      "Prometheus and Grafana",
+      "GitHub Actions CI",
+      "Failure drills",
+    ],
   },
   {
     id: "fullstack",
-    title: lensLabels.fullstack,
-    summary: "Interfaces and application code that people enjoy using.",
-    core: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
-    familiar: ["Laravel", "PHP", "Ruby"],
+    title: "Full stack, interfaces and docs",
+    summary:
+      "Interfaces people enjoy using, and writing that lets a team take over.",
+    core: [
+      "TypeScript and React",
+      "Next.js",
+      "Tailwind CSS",
+      "LibreChat and Open WebUI",
+      "Zoho CRM and Creator integrations",
+      "Technical documentation",
+      "ADRs and runbooks",
+      "Model cards",
+      "Technical articles",
+    ],
+  },
+    {
+    id: "industry",
+    title: "Industry context",
+    summary: "Where I have applied this work, in local and global settings.",
+    core: [
+      "Fintech and mobile money",
+      "CRM and business automation",
+      "E-mobility telemetry",
+      "Conversational commerce",
+      "Enterprise data and integrations",
+    ],
   },
 ];
