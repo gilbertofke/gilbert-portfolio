@@ -1,4 +1,4 @@
-import { socials } from "@/data/site";
+import { site, socials } from "@/data/site";
 
 const linkClass =
   "inline-flex min-h-11 items-center font-medium text-teal underline decoration-teal/40 underline-offset-4 hover:decoration-teal focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-turq";
@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-line py-8">
       <div className="page-container flex flex-col gap-4 text-sm text-muted md:flex-row md:items-center md:justify-between">
-        <p>&copy; {year} Gilbert Cheruiyot Tangus</p>
+        <p>&copy; {year} {site.shortName}</p>
         <p>
           I write about the technical side of my work on{" "}
           <a

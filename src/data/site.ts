@@ -2,7 +2,7 @@ import type { NavLink, Post } from "@/lib/types";
 
 export const site = {
   name: "Gilbert Cheruiyot",
-  shortName: "Gilbert Cheruiyot",
+  shortName: "Gilbert Tangus",
   fullName: "Gilbert Cheruiyot Tangus",
   url: "https://tangus.vercel.app",
   tagline: "AI Systems Engineer and Consultant",
