@@ -51,7 +51,7 @@ export type NavLink = {
 export type Post = {
   title: string;
   url: string;
-  platform: "Hashnode" | "Medium";
+  platform: "Medium";
   date?: string; // ISO format,
   summary?: string;
   topic?: string;
