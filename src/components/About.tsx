@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 export default function About() {
   return (
     <section id="about" className="pb-10 pt-8 md:pb-12 md:pt-10">
-      <div className="page-container grid gap-8 md:grid-cols-[minmax(0,1fr)_13rem] md:gap-12 lg:grid-cols-[minmax(0,1fr)_15rem]">
+      <div className="page-container grid gap-8 md:grid-cols-[minmax(0,1fr)_13rem] md:gap-12 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-10">
         <div className="md:self-center">
           <SectionHeading eyebrow="About" title={about.title} />
           <div className="mt-5 max-w-3xl space-y-3">
@@ -13,9 +13,10 @@ export default function About() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+          <p className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">{about.range.map((r) => (<span key={r.label}><span className="font-semibold text-navy">{r.label}</span> {r.items.join(", ")}</span>))}</p>
         </div>
 
-        <div className="order-first flex justify-center md:order-last md:block md:self-center">
+        <div className="order-first flex justify-center md:order-last md:flex md:justify-end md:self-center">
           <Image
             src={about.photo.src}
             alt={about.photo.alt}

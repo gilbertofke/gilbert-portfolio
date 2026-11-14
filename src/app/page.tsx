@@ -7,7 +7,7 @@ import HowIWork from "@/components/HowIWork";
 import Nav from "@/components/Nav";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
-import Writing from "@/components/Writing";
+
 export default function Home() {
   return (
     <>
@@ -18,7 +18,6 @@ export default function Home() {
         <HowICanHelp />
         <Projects />
         <Skills />
-        <Writing />
         <HowIWork />
         <Contact />
       </main>
