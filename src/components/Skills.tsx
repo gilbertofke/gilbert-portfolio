@@ -39,6 +39,43 @@ export default function Skills() {
                     </li>
                   ))}
                 </ul>
+
+                {group.secondary && group.secondary.length > 0 ? (
+                  <ul
+                    className="mt-3 flex flex-wrap gap-2"
+                    aria-label={`${group.title}: also`}
+                  >
+                    {group.secondary.map((skill) => (
+                      <li
+                        key={skill}
+                        className="rounded-md border border-dashed border-navy/20 px-2.5 py-1 text-sm text-muted"
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                {group.learning && group.learning.length > 0 ? (
+                  <div className="mt-5">
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-teal">
+                      Learning
+                    </p>
+                    <ul
+                      className="mt-2 flex flex-wrap gap-2"
+                      aria-label={`${group.title}: learning`}
+                    >
+                      {group.learning.map((skill) => (
+                        <li
+                          key={skill}
+                          className="rounded-md border border-teal/40 px-2.5 py-1 text-sm text-teal"
+                        >
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </div>
             </article>
           ))}
