@@ -39,6 +39,8 @@ export type SkillGroup = {
   title: string;
   summary: string;
   core: string[];
+  secondary?: string[];
+  learning?: string[];
 };
 
 export type NavLink = {
