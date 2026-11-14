@@ -98,7 +98,8 @@ type LinkKey = keyof typeof linkLabels;
 
 const linkKeys = Object.keys(linkLabels) as LinkKey[];
 
-const alwaysShown: LinkKey[] = ["live", "github", "docs"];
+// Only GitHub is promised ahead of time. Other links appear once they exist.
+const alwaysShown: LinkKey[] = ["github"];
 
 type ProjectCardProps = {
   project: Project;
@@ -118,12 +119,17 @@ export default function ProjectCard({
       (project.status !== "live" && alwaysShown.includes(key)),
   );
 
-  const caseStudy = [
+  // Rows without a value are left out, so nothing shows until it is real.
+  const rows: [string, string | undefined][] = [
+    ["What it shows", project.shows],
     ["Problem", project.problem],
-    ["Architecture", project.architecture],
-    ["Outcome", project.outcome],
+    ["Approach", project.architecture],
+    ["What I measured", project.outcome],
     ["Trade-off", project.tradeoff],
-  ] as const;
+  ];
+  const caseStudy = rows.filter((row): row is [string, string] =>
+    Boolean(row[1]),
+  );
 
   return (
     <article id={project.slug} className="scroll-mt-24 animate-rise flex h-full w-full flex-col overflow-hidden rounded-xl border border-navy/15 bg-paper shadow-sm transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-teal/60 hover:shadow-md motion-reduce:transition-none motion-reduce:hover:translate-y-0">
@@ -149,11 +155,18 @@ export default function ProjectCard({
         <div
           className={featured ? "md:col-start-1 md:row-start-1" : undefined}
         >
-          <span
-            className={`block w-fit rounded-full px-2.5 py-0.5 text-xs font-semibold ${kind.className}`}
-          >
-            {kind.label}
-          </span>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span
+              className={`block w-fit rounded-full px-2.5 py-0.5 text-xs font-semibold ${kind.className}`}
+            >
+              {kind.label}
+            </span>
+            {project.role ? (
+              <span className="text-sm font-medium text-muted">
+                {project.role}
+              </span>
+            ) : null}
+          </div>
 
           <h3
             className={`mt-3 font-heading font-bold text-navy ${
@@ -166,7 +179,7 @@ export default function ProjectCard({
 
           <ul
             className="mt-5 flex flex-wrap gap-2"
-            aria-label="Technologies used"
+            aria-label="Topics and technologies"
           >
             {project.stack.map((tool) => (
               <li
@@ -177,6 +190,12 @@ export default function ProjectCard({
               </li>
             ))}
           </ul>
+
+          {project.limits ? (
+            <p className="mt-5 border-l-4 border-teal bg-white px-4 py-2 text-sm text-navy">
+              {project.limits}
+            </p>
+          ) : null}
         </div>
 
         {project.status === "placeholder" ? (

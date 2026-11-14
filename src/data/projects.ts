@@ -9,34 +9,31 @@ export const lensLabels: Record<Lens, string> = {
 
 export const projects: Project[] = [
   {
-    slug: "bodata-ai",
-    title: "Bodata AI: low-cost inference for e-mobility fleet telemetry",
+    slug: "pikibytes",
+    title: "PikiBytes",
     oneLiner:
-      "Turns raw battery telemetry from electric motorcycle fleets into structured, actionable verdicts with a small open model, built to stay fast and cheap under bursts of data.",
+      "Open-source early warning for fleet battery telemetry, where explainable detectors decide and a local model explains.",
     lens: "infra",
     kind: "personal",
+    role: "Designer and builder",
     stack: [
-      "Python",
-      "FastAPI",
-      "Kafka",
-      "Redis",
-      "vLLM",
+      "LLM infrastructure",
+      "RAG",
+      "Governance",
+      "Cost control",
       "Kubernetes",
-      "Terraform",
-      "Prometheus",
     ],
+    shows:
+      "Self-hosted model serving, retrieval with read-only tools, an audit log with replay, per-tenant cost caps, and failure drills on a local Kubernetes cluster.",
     problem:
-      "Fleet batteries stream voltage, current and temperature over unreliable cellular links. Sending every packet to a large hosted model is slow and costly, and most packets are healthy and need no model at all. The hard part is catching the few that signal trouble in time to act, without paying for the rest.",
+      "Fleet batteries report voltage, current and temperature all day, and the readings that matter are rare. A model that watches every reading is costly and hard to audit, and a model that decides alone is hard to trust. The design keeps the decision with simple detectors whose logic can be read and tested, and uses a model only to explain what they found.",
     architecture:
-      "A FastAPI gateway acknowledges each packet immediately and puts it on Kafka. A Redis cache clears routine healthy readings at no model cost. Anomalies go to autoscaled workers that call a quantized open model on vLLM, constrained to return valid JSON. Langfuse, Prometheus and Grafana track latency, queue lag and cost, and Terraform defines the cloud setup.",
-    outcome:
-      "In progress, tested on synthetic telemetry. Results will be published here as p95 latency, share of traffic handled without the model, schema validity and cost per 1,000 packets, measured by a load test anyone can rerun.",
-    tradeoff:
-      "Caching and queueing add moving parts. They are only worth it if the measured cost and latency gains beat the extra complexity, and the published numbers will show whether they do.",
+      "The design has explainable detectors flag unusual readings. A local open-weight model then explains each alert in plain language, using retrieval over a runbook and read-only tools, so it can look things up but cannot change anything. Every decision goes into an audit log that can be replayed, each tenant has a cost cap, and the whole system is packaged as a Helm chart for a three-node Kubernetes cluster.",
+        limits: "This project runs on simulated telemetry, not real fleet data.",
     links: {},
     preview: {
-      src: "/images/bodata-ai.webp",
-      alt: "Concept illustration: an electric motorcycle sends battery data over cellular signals to Bodata, which shows a dashboard with battery health, a heat alert and suggested actions.",
+      src: "/images/pikibytes.webp",
+      alt: "Concept illustration of an electric motorcycle sending simulated battery readings to PikiBytes, which shows a fleet dashboard with a heat alert and a plain-language explanation.",
       type: "image",
     },
     status: "building",
