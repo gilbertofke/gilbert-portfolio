@@ -54,6 +54,7 @@ export const help = {
 export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#how-i-can-help" },
   { label: "Skills", href: "#skills" },
   { label: "How I work", href: "#how-i-work" },
   { label: "Contact", href: "#contact" },
