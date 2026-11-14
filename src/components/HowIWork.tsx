@@ -3,20 +3,20 @@ import styles from "./HowIWork.module.css";
 
 const steps = [
   {
-    title: "Map the need",
-    text: "Agree the problem and what success looks like.",
+    title: "Define the need",
+    text: "Agree the problem and how success will be measured.",
   },
   {
-    title: "Start simple, measure",
-    text: "Test on real examples and report quality, speed and cost.",
+    title: "Test small",
+    text: "Try it on your real examples and report quality, speed and cost.",
   },
   {
-    title: "Build in governance",
-    text: "Access limits, privacy and an audit trail from day one.",
+    title: "Add controls",
+    text: "Access limits, privacy and an audit trail from the first version.",
   },
   {
-    title: "Deploy and watch",
-    text: "Cloud, hybrid or on-prem, with monitoring and cost alerts.",
+    title: "Deploy and monitor",
+    text: "Cloud, hybrid or your own servers, with monitoring and cost alerts.",
   },
   {
     title: "Hand over in writing",
@@ -62,11 +62,10 @@ export default function HowIWork() {
               id="how-i-work-title"
               className="mt-4 text-2xl font-bold leading-tight text-paper md:text-3xl"
             >
-              Start small. End with it written down.
+              From first conversation to handover
             </h2>
             <p className="mt-4 leading-relaxed text-paper/80">
-              I work with teams of any size, from early-stage startups to
-              established organisations.
+              Five steps, the same on every project, whatever its size.
             </p>
           </div>
 
@@ -106,7 +105,7 @@ export default function HowIWork() {
           </ol>
 
           <p className="mt-8 border-t border-turq/30 pt-4 font-medium leading-snug text-paper md:text-lg">
-            The goal is an AI system the team can run, afford and trust.
+            The goal is an AI system your team can run, afford and trust.
           </p>
         </div>
       </div>

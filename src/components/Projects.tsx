@@ -8,6 +8,9 @@ import SectionHeading from "./SectionHeading";
 
 type Filter = "all" | Lens;
 
+// Filter chips only help once there are enough projects to filter.
+const FILTER_THRESHOLD = 3;
+
 const lenses = Object.keys(lensLabels) as Lens[];
 
 const options: { id: Filter; label: string }[] = [
@@ -25,6 +28,8 @@ export default function Projects() {
   const [filter, setFilter] = useState<Filter>("all");
   const allChipRef = useRef<HTMLButtonElement>(null);
 
+  const showFilters = projects.length >= FILTER_THRESHOLD;
+
   const visible =
     filter === "all"
       ? projects
@@ -33,10 +38,6 @@ export default function Projects() {
   const single = visible.length === 1;
   const lead = single ? visible : visible.filter((project) => project.featured);
   const rest = single ? [] : visible.filter((project) => !project.featured);
-
-  const hasPlaceholders = projects.some(
-    (project) => project.status === "placeholder",
-  );
 
   const emptyHeading =
     filter === "all" ? "Nothing here yet" : `Nothing in ${lensLabels[filter]} yet`;
@@ -54,63 +55,63 @@ export default function Projects() {
       <div className="page-container">
         <SectionHeading
           eyebrow="Projects"
-          title="Work I have built"
-          intro="Each project is a short case study covering the problem, how it is built, what came of it, and the trade-offs I accepted."
-          />
+          title="What I am building now"
+          intro="This is the project I am building in the open. Open the card to read the problem it solves and how I am approaching it."
+        />
 
-        {hasPlaceholders ? (
-          <p className="mt-3 max-w-2xl text-sm text-muted">
-            Some cards are placeholders for now. Each one is replaced with a
-            real case study as the project ships.
-          </p>
+        {showFilters ? (
+          <>
+            <div
+              role="group"
+              aria-label="Filter projects by area"
+              className="mt-8 flex flex-wrap gap-2"
+            >
+              {options.map((option) => {
+                const selected = filter === option.id;
+                const count = countFor(option.id);
+
+                return (
+                  <button
+                    key={option.id}
+                    ref={option.id === "all" ? allChipRef : undefined}
+                    type="button"
+                    onClick={() => setFilter(option.id)}
+                    aria-pressed={selected}
+                    className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-[0.95rem] font-semibold transition-colors duration-200 ${
+                      selected
+                        ? "border-navy bg-navy text-paper"
+                        : "border-navy/40 bg-white text-navy hover:border-navy hover:bg-paper"
+                    }`}
+                  >
+                    {option.label}
+                    <span
+                      aria-hidden="true"
+                      className={`rounded-full px-2 text-xs font-bold ${
+                        selected ? "bg-turq text-navy" : "bg-paper text-muted"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                    <span className="sr-only">
+                      ({count} {count === 1 ? "project" : "projects"})
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <p role="status" className="mt-6 text-sm text-muted">
+              Showing {visible.length} of {projects.length}{" "}
+              {projects.length === 1 ? "project" : "projects"}
+            </p>
+          </>
         ) : null}
 
-        <div
-          role="group"
-          aria-label="Filter projects by area"
-          className="mt-8 flex flex-wrap gap-2"
-        >
-          {options.map((option) => {
-            const selected = filter === option.id;
-            const count = countFor(option.id);
-
-            return (
-              <button
-                key={option.id}
-                ref={option.id === "all" ? allChipRef : undefined}
-                type="button"
-                onClick={() => setFilter(option.id)}
-                aria-pressed={selected}
-                className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-[0.95rem] font-semibold transition-colors duration-200 ${
-                  selected
-                    ? "border-navy bg-navy text-paper"
-                    : "border-navy/40 bg-white text-navy hover:border-navy hover:bg-paper"
-                }`}
-              >
-                {option.label}
-                <span
-                  aria-hidden="true"
-                  className={`rounded-full px-2 text-xs font-bold ${
-                    selected ? "bg-turq text-navy" : "bg-paper text-muted"
-                  }`}
-                >
-                  {count}
-                </span>
-                <span className="sr-only">
-                  ({count} {count === 1 ? "project" : "projects"})
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        <p role="status" className="mt-6 text-sm text-muted">
-          Showing {visible.length} of {projects.length}{" "}
-          {projects.length === 1 ? "project" : "projects"}
-        </p>
-
         {visible.length > 0 ? (
-          <div key={filter} className="mt-4 space-y-6">
+          <div
+            key={filter}
+            className={showFilters ? "mt-4 space-y-6" : "mt-8 space-y-6"}
+          >
             {lead.length > 0 ? (
               <ul className="grid gap-6">
                 {lead.map((project) => (
@@ -167,6 +168,12 @@ export default function Projects() {
             </button>
           </div>
         )}
+
+        {!showFilters ? (
+          <p className="mt-6 text-sm text-muted">
+            More projects appear here once they ship with results.
+          </p>
+        ) : null}
       </div>
     </section>
   );

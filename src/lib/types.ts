@@ -10,11 +10,14 @@ export type Project = {
   oneLiner: string;
   lens: Lens;
   kind: ProjectKind;
+  role?: string;
   stack: string[];
+  shows?: string;
   problem: string;
   architecture: string;
-  outcome: string;
-  tradeoff: string;
+  outcome?: string;
+  tradeoff?: string;
+  limits?: string;
   links: {
     live?: string;
     github?: string;
