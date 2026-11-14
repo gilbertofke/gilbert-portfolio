@@ -7,7 +7,7 @@ export const site = {
   url: "https://tangus.vercel.app",
   tagline: "AI Systems Engineer and Consultant",
   description:
-    "Gilbert Cheruiyot Tangus is an AI systems engineer and consultant who builds agents, integrations and inference infrastructure, with evaluation, governance and cost control built in.",
+    "AI systems engineer and consultant building agents, retrieval and model serving, with evaluation, governance and cost control built in.",
   location: "Kenya",
   hero: {
     headline: "I build AI systems that teams can trust, run and afford.",
